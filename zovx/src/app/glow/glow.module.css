@@ -10,11 +10,14 @@
 }
 
 .container {
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
   position: relative;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 0 20px;
+  gap: 20px;
 }
 
 .card {
@@ -162,6 +165,143 @@
   text-align: center;
   font-style: italic;
   padding: 5px 0;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .glowRoot {
+    padding: 10px 0;
+    min-height: calc(100vh - 100px);
+  }
+  
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+    gap: 30px;
+    max-width: 600px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .face {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .face1 {
+    transform: translateY(80px);
+  }
+  
+  .face2 {
+    transform: translateY(-80px);
+    padding: 15px;
+  }
+  
+  .face1 .content h3 {
+    font-size: 0.9em;
+  }
+  
+  .face1 .content i {
+    font-size: 2.5em;
+  }
+  
+  .promptCount {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .glowRoot {
+    padding: 5px 0;
+  }
+  
+  .container {
+    padding: 0 10px;
+    gap: 25px;
+  }
+  
+  .card {
+    max-width: 350px;
+  }
+  
+  .face {
+    height: 160px;
+  }
+  
+  .face1 {
+    transform: translateY(60px);
+  }
+  
+  .face2 {
+    transform: translateY(-60px);
+    padding: 12px;
+  }
+  
+  .face1 .content h3 {
+    font-size: 0.8em;
+  }
+  
+  .face1 .content i {
+    font-size: 2em;
+  }
+  
+  .face2 .content p,
+  .face2 .content a {
+    font-size: 9pt;
+  }
+  
+  .promptItem strong {
+    font-size: 10px;
+  }
+  
+  .promptItem small {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+  
+  .promptsList {
+    max-height: 100px;
+  }
+}
+
+@media (max-width: 320px) {
+  .container {
+    padding: 0 5px;
+    gap: 20px;
+  }
+  
+  .card {
+    max-width: 300px;
+  }
+  
+  .face {
+    height: 140px;
+  }
+  
+  .face1 .content h3 {
+    font-size: 0.7em;
+  }
+  
+  .face1 .content i {
+    font-size: 1.8em;
+  }
+  
+  .face2 {
+    padding: 10px;
+  }
+  
+  .face2 .content p,
+  .face2 .content a {
+    font-size: 8pt;
+  }
+  
+  .promptCount {
+    font-size: 0.6em;
+  }
 }
 
 
