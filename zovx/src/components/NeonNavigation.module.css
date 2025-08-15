@@ -62,6 +62,10 @@
 
 /* Mobile responsive */
 @media (max-width: 768px) {
+  .nav {
+    padding: 15px 0;
+  }
+  
   .navList {
     gap: 20px;
     padding: 0 20px;
@@ -73,12 +77,32 @@
 }
 
 @media (max-width: 480px) {
+  .nav {
+    padding: 10px 0;
+  }
+  
   .navList {
-    flex-direction: column;
-    gap: 15px;
+    gap: 8px;
+    padding: 0 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
   
   .navLink {
-    font-size: 1em;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+  .navList {
+    gap: 5px;
+    padding: 0 5px;
+  }
+  
+  .navLink {
+    font-size: 0.7em;
+    letter-spacing: 0.5px;
   }
 }
