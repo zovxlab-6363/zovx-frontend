@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   description: "Transform your goals into ready-to-use prompts for any AI tool. Generate optimized prompts for Canva, Notion AI, Midjourney, and more.",
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
