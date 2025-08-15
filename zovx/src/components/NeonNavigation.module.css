@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 1000;
+  padding: 20px 0;
+}
+
+.navList {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+  list-style: none;
+}
+
+.navLink {
+  font-family: 'Mochiy Pop One', sans-serif;
+  font-size: 1.5em;
+  text-decoration: none;
+  letter-spacing: 2px;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.navLink::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--clr);
+  width: 0;
+  overflow: hidden;
+  transition: 1s;
+  border-right: 4px solid var(--clr);
+  -webkit-text-stroke: 1px var(--clr);
+  white-space: nowrap;
+}
+
+.navLink:hover::before {
+  width: 100%;
+  filter: drop-shadow(0 0 25px var(--clr));
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .navList {
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .navLink {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .navList {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .navLink {
+    font-size: 1em;
+  }
+}
