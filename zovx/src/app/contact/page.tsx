@@ -19,7 +19,7 @@ export default function ContactPage() {
           Ready to Transform Your Business with Custom AI?
         </h1>
         <p className="hero-description">
-          We've helped thousands with our prompts. Now let us build custom AI solutions tailored specifically for your business needs.
+          We&apos;ve helped thousands with our prompts. Now let us build custom AI solutions tailored specifically for your business needs.
         </p>
       </div>
 
@@ -62,8 +62,8 @@ export default function ContactPage() {
 
       <div className="contact-form-section">
         <div className="contact-form">
-          <h2>Let's Build Something Amazing Together</h2>
-          <p>Tell us about your project and we'll get back to you within 24 hours.</p>
+          <h2>Let&apos;s Build Something Amazing Together</h2>
+          <p>Tell us about your project and we&apos;ll get back to you within 24 hours.</p>
           
           <form className="form">
             <div className="form-group">

@@ -66,7 +66,7 @@ export default function GlowPage() {
                   )}
                 </div>
               ) : (
-                <p>No content prompts available. Create some prompts with category "content".</p>
+                <p>No content prompts available. Create some prompts with category &quot;content&quot;.</p>
               )}
               <a href="/adapters/content" role="button">Explore All Content</a>
             </div>
@@ -102,7 +102,7 @@ export default function GlowPage() {
                   )}
                 </div>
               ) : (
-                <p>No research prompts available. Create some prompts with category "research".</p>
+                <p>No research prompts available. Create some prompts with category &quot;research&quot;.</p>
               )}
               <a href="/adapters/research" role="button">Start Research</a>
             </div>
@@ -138,7 +138,7 @@ export default function GlowPage() {
                   )}
                 </div>
               ) : (
-                <p>No business prompts available. Create some prompts with category "business".</p>
+                <p>No business prompts available. Create some prompts with category &quot;business&quot;.</p>
               )}
               <a href="/adapters/business" role="button">View Tools</a>
             </div>
