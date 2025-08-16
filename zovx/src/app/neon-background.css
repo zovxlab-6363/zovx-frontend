@@ -1131,6 +1131,22 @@
     font-size: 12px !important;
     padding: 8px 12px !important;
   }
+  
+  .prompt-actions {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .open-ai-btn {
+    font-size: 11px !important;
+    padding: 8px 12px !important;
+  }
+  
+  .copy-only-btn {
+    align-self: center !important;
+    padding: 6px 8px !important;
+    font-size: 14px !important;
+  }
 }
 
 .prompt-card-detailed {
@@ -1231,6 +1247,53 @@
 
 .copy-btn.copied {
   background: linear-gradient(45deg, #00dc82, #26de81);
+}
+
+/* New prompt actions layout */
+.prompt-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.open-ai-btn {
+  flex: 1;
+  background: linear-gradient(45deg, #00ade1, #ff6492);
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.open-ai-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 173, 225, 0.4);
+}
+
+.open-ai-btn.opened {
+  background: linear-gradient(45deg, #00dc82, #26de81);
+}
+
+.copy-only-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.copy-only-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 .cta-buttons {
@@ -1387,6 +1450,15 @@
     margin-top: 10px;
     padding: 8px 16px;
     font-size: 12px;
+  }
+  
+  .prompt-actions {
+    gap: 8px;
+  }
+  
+  .open-ai-btn {
+    font-size: 12px;
+    padding: 8px 14px;
   }
 }
 

@@ -136,6 +136,48 @@ Provide 10 example sentences in this brand voice for different scenarios: educat
     }
   ];
 
+  const openInAI = (promptText: string, tool: string, promptId: string) => {
+    const encodedPrompt = encodeURIComponent(promptText);
+    let url = '';
+
+    switch (tool.toLowerCase()) {
+      case 'chatgpt':
+        url = `https://chat.openai.com/?q=${encodedPrompt}`;
+        break;
+      case 'claude':
+        url = `https://claude.ai/chat?q=${encodedPrompt}`;
+        break;
+      case 'midjourney':
+      case 'midjourney/dall-e':
+      case 'dalle':
+        // For image generation, we'll open Discord/Midjourney
+        url = `https://discord.com/channels/@me`;
+        // Copy to clipboard for Midjourney since it requires Discord
+        navigator.clipboard.writeText(promptText);
+        break;
+      case 'canva':
+        url = `https://www.canva.com/magic-write/`;
+        navigator.clipboard.writeText(promptText);
+        break;
+      case 'runway':
+        url = `https://runwayml.com/`;
+        navigator.clipboard.writeText(promptText);
+        break;
+      default:
+        // Fallback: copy to clipboard and open ChatGPT
+        navigator.clipboard.writeText(promptText);
+        url = `https://chat.openai.com/`;
+        break;
+    }
+
+    // Open in new tab
+    window.open(url, '_blank');
+    
+    // Show feedback
+    setCopiedPrompt(promptId);
+    setTimeout(() => setCopiedPrompt(""), 3000);
+  };
+
   const copyPrompt = async (promptText: string, promptId: string) => {
     try {
       await navigator.clipboard.writeText(promptText);
@@ -204,12 +246,21 @@ Provide 10 example sentences in this brand voice for different scenarios: educat
                 <div className="prompt-text">
                   {prompt.prompt_text}
                 </div>
-                <button 
-                  className={`copy-btn ${copiedPrompt === prompt.id.toString() ? 'copied' : ''}`}
-                  onClick={() => copyPrompt(prompt.prompt_text, prompt.id.toString())}
-                >
-                  {copiedPrompt === prompt.id.toString() ? '✓ Copied!' : 'Copy Prompt'}
-                </button>
+                <div className="prompt-actions">
+                  <button 
+                    className={`open-ai-btn ${copiedPrompt === prompt.id.toString() ? 'opened' : ''}`}
+                    onClick={() => openInAI(prompt.prompt_text, prompt.tool, prompt.id.toString())}
+                  >
+                    {copiedPrompt === prompt.id.toString() ? '✓ Opened!' : `Open in ${prompt.tool}`}
+                  </button>
+                  <button 
+                    className="copy-only-btn"
+                    onClick={() => copyPrompt(prompt.prompt_text, prompt.id.toString())}
+                    title="Copy to clipboard"
+                  >
+                    📋
+                  </button>
+                </div>
               </div>
             </div>
           </div>
