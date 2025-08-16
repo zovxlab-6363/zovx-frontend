@@ -109,8 +109,8 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .neon-brand {
-    font-size: clamp(80px, 25vw, 250px);
-    letter-spacing: 0.2em;
+    font-size: clamp(6vw, 20vw, 20vw);
+    letter-spacing: 0.15em;
   }
   
   .neon-subtitle {

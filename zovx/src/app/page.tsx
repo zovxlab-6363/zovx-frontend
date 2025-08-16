@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div className="neon-container">
       <div className="neon-brand">
-        ZOVX
+        <h1>ZOVX</h1>
       </div>
 
       <div className="neon-subtitle">
