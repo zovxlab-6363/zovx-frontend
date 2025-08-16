@@ -109,13 +109,14 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .neon-brand {
-    font-size: clamp(6vw, 20vw, 20vw);
-    letter-spacing: 0.15em;
+    font-size: clamp(50px, 12vw, 120px);
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
   }
   
   .neon-subtitle {
     font-size: clamp(14px, 4vw, 20px);
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 15px;
     padding: 0 20px;
   }
@@ -123,15 +124,16 @@
 
 @media (max-width: 480px) {
   .neon-brand {
-    font-size: clamp(60px, 30vw, 180px);
+    font-size: clamp(35px, 10vw, 80px);
     letter-spacing: 0.15em;
     -webkit-text-stroke: 2px #ffffff;
+    margin-bottom: 8px;
   }
   
   .neon-subtitle {
-    font-size: clamp(12px, 5vw, 18px);
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: clamp(12px, 4vw, 16px);
+    margin-top: 8px;
+    margin-bottom: 15px;
     padding: 0 15px;
     letter-spacing: 0.05em;
   }
@@ -143,6 +145,21 @@
   max-width: 800px;
   margin: 40px auto 60px;
   padding: 0 20px;
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 768px) {
+  .hero-section {
+    margin: 25px auto 40px;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    margin: 20px auto 35px;
+    padding: 0 12px;
+  }
 }
 
 .hero-title {
@@ -512,11 +529,24 @@
 /* Extra small screens */
 @media (max-width: 320px) {
   .neon-container {
-    padding-top: 90px;
+    padding-top: 80px;
+  }
+  
+  .neon-brand {
+    font-size: clamp(28px, 8vw, 60px);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  
+  .neon-subtitle {
+    font-size: clamp(10px, 3vw, 14px);
+    margin-top: 6px;
+    margin-bottom: 12px;
+    padding: 0 10px;
   }
   
   .hero-section {
-    margin: 20px auto 40px;
+    margin: 15px auto 30px;
     padding: 0 15px;
   }
   
