@@ -137,45 +137,73 @@ Provide 10 example sentences in this brand voice for different scenarios: educat
   ];
 
   const openInAI = (promptText: string, tool: string, promptId: string) => {
-    const encodedPrompt = encodeURIComponent(promptText);
-    let url = '';
+    try {
+      let url = '';
+      
+      // Always copy to clipboard first
+      navigator.clipboard.writeText(promptText);
 
-    switch (tool.toLowerCase()) {
-      case 'chatgpt':
-        url = `https://chat.openai.com/?q=${encodedPrompt}`;
-        break;
-      case 'claude':
-        url = `https://claude.ai/chat?q=${encodedPrompt}`;
-        break;
-      case 'midjourney':
-      case 'midjourney/dall-e':
-      case 'dalle':
-        // For image generation, we'll open Discord/Midjourney
-        url = `https://discord.com/channels/@me`;
-        // Copy to clipboard for Midjourney since it requires Discord
-        navigator.clipboard.writeText(promptText);
-        break;
-      case 'canva':
-        url = `https://www.canva.com/magic-write/`;
-        navigator.clipboard.writeText(promptText);
-        break;
-      case 'runway':
-        url = `https://runwayml.com/`;
-        navigator.clipboard.writeText(promptText);
-        break;
-      default:
-        // Fallback: copy to clipboard and open ChatGPT
-        navigator.clipboard.writeText(promptText);
-        url = `https://chat.openai.com/`;
-        break;
+      switch (tool.toLowerCase()) {
+        case 'chatgpt':
+          // Open ChatGPT and show instructions to paste
+          url = `https://chat.openai.com/`;
+          // Store prompt in sessionStorage for potential auto-fill
+          if (typeof window !== 'undefined') {
+            sessionStorage.setItem('zovx_prompt', promptText);
+          }
+          break;
+        case 'claude':
+          // Open Claude with the prompt copied
+          url = `https://claude.ai/`;
+          if (typeof window !== 'undefined') {
+            sessionStorage.setItem('zovx_prompt', promptText);
+          }
+          break;
+        case 'midjourney':
+        case 'midjourney/dall-e':
+        case 'dalle':
+          // For image generation, open Discord
+          url = `https://discord.com/channels/@me`;
+          break;
+        case 'canva':
+          // Open Canva's AI writing tool
+          url = `https://www.canva.com/magic-write/`;
+          break;
+        case 'runway':
+          // Open Runway ML
+          url = `https://runwayml.com/`;
+          break;
+        default:
+          // Fallback: open ChatGPT
+          url = `https://chat.openai.com/`;
+          if (typeof window !== 'undefined') {
+            sessionStorage.setItem('zovx_prompt', promptText);
+          }
+          break;
+      }
+
+      // Open in new tab with additional instructions
+      if (url) {
+        window.open(url, '_blank');
+        
+        // For ChatGPT and Claude, try to focus and give user feedback
+        if (tool.toLowerCase() === 'chatgpt' || tool.toLowerCase() === 'claude') {
+          // Show a brief notification
+          setTimeout(() => {
+            alert(`✅ ${tool} opened! The prompt has been copied to your clipboard. Simply paste it (Ctrl+V/Cmd+V) in the chat box to get started.`);
+          }, 1000);
+        }
+      }
+      
+      // Show success feedback
+      setCopiedPrompt(promptId);
+      setTimeout(() => setCopiedPrompt(""), 3000);
+      
+    } catch (error) {
+      console.error('Error opening AI platform:', error);
+      // Fallback to copy functionality
+      copyPrompt(promptText, promptId);
     }
-
-    // Open in new tab
-    window.open(url, '_blank');
-    
-    // Show feedback
-    setCopiedPrompt(promptId);
-    setTimeout(() => setCopiedPrompt(""), 3000);
   };
 
   const copyPrompt = async (promptText: string, promptId: string) => {
@@ -250,8 +278,9 @@ Provide 10 example sentences in this brand voice for different scenarios: educat
                   <button 
                     className={`open-ai-btn ${copiedPrompt === prompt.id.toString() ? 'opened' : ''}`}
                     onClick={() => openInAI(prompt.prompt_text, prompt.tool, prompt.id.toString())}
+                    title={`Opens ${prompt.tool} in a new tab and copies the prompt to your clipboard`}
                   >
-                    {copiedPrompt === prompt.id.toString() ? '✓ Opened!' : `Open in ${prompt.tool}`}
+                    {copiedPrompt === prompt.id.toString() ? '✓ Opened & Copied!' : `🚀 Open ${prompt.tool}`}
                   </button>
                   <button 
                     className="copy-only-btn"
