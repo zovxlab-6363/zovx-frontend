@@ -14,6 +14,38 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-decoration: none;
+  color: #ffffff;
+  text-shadow: 
+    0 0 10px #00ade1,
+    0 0 20px #00ade1,
+    0 0 30px #00ade1;
+  letter-spacing: 3px;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  text-shadow: 
+    0 0 15px #00ade1,
+    0 0 30px #00ade1,
+    0 0 45px #00ade1,
+    0 0 60px #00ade1;
+  transform: scale(1.05);
+}
+
 .navList {
   position: relative;
   display: flex;
@@ -23,9 +55,7 @@
   flex-wrap: wrap;
   list-style: none;
   margin: 0;
-  padding: 0 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 0;
 }
 
 .navItem {
@@ -123,9 +153,21 @@
     padding: 12px 0;
   }
   
+  .navContainer {
+    padding: 0 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .logo {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+  
   .navList {
     gap: 15px;
-    padding: 0 15px;
+    width: 100%;
+    justify-content: center;
   }
   
   .navLink {
@@ -140,9 +182,19 @@
     padding: 10px 0;
   }
   
+  .navContainer {
+    padding: 0 10px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+  }
+  
   .navList {
     gap: 8px;
-    padding: 0 10px;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -156,9 +208,17 @@
 
 /* Extra small screens */
 @media (max-width: 320px) {
+  .navContainer {
+    padding: 0 8px;
+  }
+  
+  .logo {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  
   .navList {
     gap: 6px;
-    padding: 0 8px;
   }
   
   .navLink {

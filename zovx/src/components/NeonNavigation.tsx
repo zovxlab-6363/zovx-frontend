@@ -4,12 +4,16 @@ import styles from "./NeonNavigation.module.css";
 export default function NeonNavigation() {
   return (
     <nav className={styles.nav}>
-      <ul className={styles.navList}>
-        <li className={styles.navItem} style={{ "--clr": "#00ade1" } as React.CSSProperties}>
-          <Link href="/" className={styles.navLink}>
-            Home
-          </Link>
-        </li>
+      <div className={styles.navContainer}>
+        <Link href="/" className={styles.logo}>
+          ZOVX
+        </Link>
+        <ul className={styles.navList}>
+          <li className={styles.navItem} style={{ "--clr": "#00ade1" } as React.CSSProperties}>
+            <Link href="/" className={styles.navLink}>
+              Home
+            </Link>
+          </li>
         <li className={styles.navItem} style={{ "--clr": "#ffdd1c" } as React.CSSProperties}>
           <Link href="/category/ecommerce-brands" className={styles.navLink}>
             E-commerce
@@ -25,7 +29,8 @@ export default function NeonNavigation() {
             Custom AI
           </Link>
         </li>
-      </ul>
+        </ul>
+      </div>
     </nav>
   );
 }

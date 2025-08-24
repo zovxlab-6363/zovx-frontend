@@ -30,12 +30,8 @@ export default function Home() {
   ];
   return (
     <div className="neon-container">
-      <div className="neon-brand">
-        <h1>ZOVX</h1>
-      </div>
-
       <div className="neon-subtitle">
-      “Transforming Data Into Strategic Advantage.”
+      "Transforming Data Into Strategic Advantage."
       </div>
       
       <div className="hero-section">
