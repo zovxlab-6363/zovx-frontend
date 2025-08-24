@@ -35,7 +35,7 @@ export default function Home() {
       </div>
 
       <div className="neon-subtitle">
-        Your Complete AI Transformation Hub
+      “Transforming Data Into Strategic Advantage.”
       </div>
       
       <div className="hero-section">
